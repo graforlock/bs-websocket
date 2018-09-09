@@ -28,4 +28,5 @@ Websocket.onClose(ws, ev => {
 });
 ```
 
+API Documentation: [wiki](https://github.com/graforlock/bs-websocket/wiki)
 
