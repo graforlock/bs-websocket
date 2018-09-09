@@ -6,7 +6,7 @@
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "example": "webpack-dev-server --config webpack.config.js"
+    "example": "npm run build && webpack-dev-server --config webpack.config.js"
   },
   "keywords": [
     "BuckleScript",
