@@ -1,4 +1,4 @@
-# koa-websocket
+# bs-websocket
 
 ```ocaml
 open WebsocketClient;
