@@ -1,18 +1,26 @@
-# Basic Reason Template
+# koa-websocket
 
-Hello! This project allows you to quickly get started with Reason and BuckleScript. If you wanted a more sophisticated version, try the `react` template (`bsb -theme react -init .`).
+```ocaml
+open WebsocketClient;
 
-# Build
+let ws = Websocket.make("ws://localhost:3000/");
+
+Websocket.onOpen(ws, _ => {
+  Websocket.send(ws, "BOOGEYMAN!");
+});
+
+Websocket.onMessage(ws, ev => {
+  Js.log({j|Message received: $ev|j}) 
+});
+
+Websocket.onError(ws, ev => {
+  Js.log(ev);
+  Websocket.close(ws);
+});
+
+Websocket.onClose(ws, ev => {
+  Js.log(ev);
+});
 ```
-npm run build
-```
-
-# Build + Watch
-
-```
-npm run start
-```
 
 
-# Editor
-If you use `vscode`, Press `Windows + Shift + B` it will build automatically
