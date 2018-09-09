@@ -1,5 +1,10 @@
 # bs-websocket
 
+Installation:
+
+`npm i --save bs-websocket`
+
+Example:
 ```ocaml
 open WebsocketClient;
 
