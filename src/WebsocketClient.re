@@ -4,7 +4,7 @@ module MessageEvent = {
 
   include EventRe.Impl({ type nonrec t = t; });
 
-  [@bs.get] external data : t => data('a) = "";
+  [@bs.get] external data : t => data('a) = "data";
   [@bs.get] external type_ : t => string = "type";
 };
 
@@ -68,10 +68,10 @@ module Websocket = {
 
   type t('msg) = {.
     [@bs.set] "binaryType": string,
-    [@bs.set] "onopen": (MessageEvent.t => unit) => unit,
-    [@bs.set] "onerror": (MessageEvent.t => unit) => unit,
-    [@bs.set] "onclose": (CloseEvent.t => unit) => unit,
-    [@bs.set] "onmessage": (MessageEvent.t => unit) => unit,
+    [@bs.set] "onopen": MessageEvent.t => unit,
+    [@bs.set] "onerror": MessageEvent.t => unit,
+    [@bs.set] "onclose": CloseEvent.t => unit,
+    [@bs.set] "onmessage": MessageEvent.t => unit,
     "bufferedAmount": int,
     "url": string,
     "protocol": string,
