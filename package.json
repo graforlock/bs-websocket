@@ -1,6 +1,6 @@
 {
   "name": "bs-websocket",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "repository": "graforlock/bs-websocket",
   "scripts": {
     "build": "bsb -make-world",
