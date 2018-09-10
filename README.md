@@ -11,7 +11,6 @@ open WebsocketClient;
 let ws = Websocket.make("ws://localhost:3000/halloumi");
 
 Websocket.onOpen(ws, _ => {
-  Js.log("OPEN?");
   Websocket.send(ws, "BOOGEYMAN!");
 });
 
