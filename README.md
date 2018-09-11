@@ -8,7 +8,7 @@ Example:
 ```ocaml
 open WebsocketClient;
 
-let ws = Websocket.make("ws://localhost:3000/halloumi");
+let ws = Websocket.make("ws://localhost:3000/", ~protocols=[| "protocolOne" |]);
 
 Websocket.onOpen(ws, _ => {
   Websocket.send(ws, "BOOGEYMAN!");

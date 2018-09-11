@@ -66,6 +66,8 @@ module Websocket = {
     | Blob
     | ArrayBuffer;
 
+  type protocols = array(string);
+
   type t('msg) = {.
     [@bs.set] "binaryType": string,
     [@bs.set] "onopen": MessageEvent.t => unit,
@@ -81,7 +83,7 @@ module Websocket = {
     [@bs.meth] "send": 'msg => unit
   };
 
-  [@bs.new] external make: string => t('msg) = "WebSocket";
+  [@bs.new] external make_: (string, protocols)  => t('msg) = "WebSocket";
 
   let readyState = ws =>
     switch(ws##readyState) {
@@ -92,6 +94,7 @@ module Websocket = {
     | n => raise(UnknownReadyState(n));
     };
 
+    let make = (~protocols=[||], url) => make_(url, protocols);
     let close = (
       ~code=Js.undefined,
       ~reason=Js.undefined,
