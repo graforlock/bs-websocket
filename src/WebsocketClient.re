@@ -1,3 +1,9 @@
+module /*Open*/Event = {
+  type t;
+
+  include EventRe.Impl({ type nonrec t = t; });
+};
+
 module MessageEvent = {
   type t;
   type data('a);
@@ -70,7 +76,7 @@ module Websocket = {
 
   type t('msg) = {.
     [@bs.set] "binaryType": string,
-    [@bs.set] "onopen": MessageEvent.t => unit,
+    [@bs.set] "onopen": Event.t => unit,
     [@bs.set] "onerror": MessageEvent.t => unit,
     [@bs.set] "onclose": CloseEvent.t => unit,
     [@bs.set] "onmessage": MessageEvent.t => unit,
