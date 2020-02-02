@@ -83,7 +83,7 @@ module Websocket = {
     "bufferedAmount": int,
     "url": string,
     "protocol": string,
-    "readyState": string,
+    "readyState": int,
     "extensions": string,
     [@bs.meth] "close": Js.Undefined.t(string) => Js.Undefined.t(string) => unit,
     [@bs.meth] "send": 'msg => unit
